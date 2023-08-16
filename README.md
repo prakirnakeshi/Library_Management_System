@@ -69,4 +69,3 @@ Contributions to the Library Management System are welcome! If you find a bug or
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-*This README template is provided by ChatGPT, an AI language model by OpenAI.*
