@@ -25,4 +25,48 @@ The Library Management System includes the following features:
 
 Follow these steps to set up and run the Library Management System locally:
 
+1. **Clone the Repository:**
 
+2. **Create and Activate a Virtual Environment (Optional):**
+python -m venv venv
+venv\Scripts\activate (on Windows)
+
+3. **Install Dependencies:**
+pip install -r requirements.txt
+
+4. **Configure the Database:**
+- Open `settings.py` in the `LMS` directory and update the database settings.
+
+5. **Apply Migrations:**
+python manage.py makemigrations
+python manage.py migrate
+
+6. **Create Superuser (Admin):**
+python manage.py createsuperuser
+
+7. **Run the Development Server:**
+python manage.py runserver
+
+8. **Access the Application:**
+- Open a web browser and navigate to `http://127.0.0.1:8000/admin/` to access the admin interface.
+- Use the superuser credentials created earlier to log in.
+
+## Usage
+
+- Use the admin interface to manage books, members, and book issuing.
+- Perform CRUD operations on books and members.
+- Issue books to members and track borrowed books.
+- Search for books by name and author.
+- Charging rent fees on book returns is automated.
+- The system ensures that a member's debt does not exceed Rs. 500.
+
+## Contributing
+
+Contributions to the Library Management System are welcome! If you find a bug or want to suggest an enhancement, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+*This README template is provided by ChatGPT, an AI language model by OpenAI.*
