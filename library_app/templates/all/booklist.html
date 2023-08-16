@@ -1,0 +1,27 @@
+<!-- library/book_list.html -->
+
+{% extends 'all/index.html' %}
+<!-- {% block content %} -->
+<h2>Book List</h2>
+{{books}}
+<table>
+    <thead>
+        <table class="container">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Publisher</th>
+            </tr>
+            <tr>
+                {% for book in books %}
+                <td>{{ book.title }}</td>
+                <td>{{ book.authors }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.publisher }}</td>
+            </tr>            
+            {% endfor %}
+        </table>    
+    </thead>
+</table>
+{% endblock %}

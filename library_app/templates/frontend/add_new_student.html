@@ -1,0 +1,45 @@
+<title>Add New Student</title>
+{% extends 'frontend/base.html' %}
+
+<body>
+    
+{% block content %}
+
+<div class="container mt-5">
+    <form class="col-5 mx-auto card p-3 shadow-lg" method="post">
+    <h2>Add Details</h2>
+    <hr>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Department</label>
+          <input name="department" required type="text" class="form-control">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Student Id</label>
+          <input name="student_id" required type="text" class="form-control">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Student Name</label>
+          <input name="student_name" required type="text" class="form-control">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Email</label>
+          <input name="student_email" required type="text" class="form-control">
+        </div>
+        <!-- <div class="mb-3 form-check">
+            <input type="text" class="form-control">abel>
+        </div> -->
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      
+</div>
+
+
+
+{% endblock %}
+
+</body>
+</html>

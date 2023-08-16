@@ -1,0 +1,52 @@
+<title>Student</title>
+{% extends 'frontend/base.html' %}
+
+<body>
+{% block content %}
+
+<div class="container mt-5">
+    
+    <h2>Update Details</h2>
+    <hr>
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Book</label>
+          <input name="book" value="{{student_data.book.title}}" required type="text" class="form-control" readonly>
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Student Name</label>
+          <input name="student_name" value="{{student_data.student}}" required type="text" class="form-control" readonly>
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Issued Date</label>
+          <input name="issued_date" value="{{ student_data.issue_date|date:'Y-m-d' }}" required type="text" class="form-control" readonly>
+          
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Retrun Date</label>
+          <input name="return_date" type="date" class="form-control" value="{{student_data.return_date|date:'Y-m-d'}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Rent fee</label>
+          <input name="rent_fee" type="text" class="form-control" value="{{transaction.return_fee}}" id="exampleInputEmail1" aria-describedby="emailHelp" >
+          
+        </div>
+        <!-- <div class="mb-3 form-check">
+            <input type="text" class="form-control">abel>
+        </div> -->
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+      
+</div>
+
+
+
+
+{% endblock %}
+</body>
+</html>

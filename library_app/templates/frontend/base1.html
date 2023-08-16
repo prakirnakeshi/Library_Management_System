@@ -1,0 +1,73 @@
+<!-- {% load static %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="loco.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{%static 'css/style.css' %}"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">  
+        <div id="hero">
+            <div id="nav">
+                <a href="#">Library Management System</a>
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="{% url 'new_student'%}">Add Student</a>
+                <a class="nav-link" href="{% url 'view_students'%}">Students</a>
+                <a class="nav-link" href="{% url 'view_books'%}">Books</a>
+                <a class="nav-link" href="{% url 'issue_book'%}">Issue a Book</a>
+                <a class="nav-link" href="{% url 'get_transaction_details'%}">Issued Book</a>
+                <form class="d-flex" role="search">
+                    <!-- TO SEE LOGIN WHEN NOT SIGNNED IN and TO REFLECT LOGOUT BUTTON WHEN SIGNED IN  -->
+                {% if request.user.is_authenticated%}    
+                    <a href="/logout/" class="btn btn-outline-success" type="submit">Logout</a>
+                {% else %}    
+                <a href="/login/" class="btn btn-outline-success" type="submit">Login</a>
+                {% endif %}    
+                  </form>
+            </div>
+            <div id="heading">
+                <h1>Library</h1>
+                <div class="blocktext">
+                    <h1 id="secondh1">Management</h1>
+                    <h2 >System</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    
+    {% endblock %}
+
+    <style>
+        body{
+    
+        /* background-image: url('static/images/bg_library.jpg'); */
+        
+        
+        background-image: url('https://images.pexels.com/photos/14104037/pexels-photo-14104037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* text-align:center */
+        }
+    
+        /* form{
+        margin-top:13em;
+        } */
+    </style>
+    </body>
+    
+    </html>

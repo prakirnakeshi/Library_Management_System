@@ -1,0 +1,29 @@
+<!-- library/transaction_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Transaction List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Member</th>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+            <th>Rent Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.book }}</td>
+            <td>{{ transaction.member }}</td>
+            <td>{{ transaction.issue_date }}</td>
+            <td>{{ transaction.return_date }}</td>
+            <td>{{ transaction.rent_fee }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,46 @@
+<title>Student</title>
+{% extends 'frontend/base.html' %}
+
+<body>
+{% block content %}
+
+<div class="container mt-5">
+    
+    <h2>Update Details</h2>
+    <hr>
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Department</label>
+          <input name="department" value="{{student_data.department}}" required type="text" class="form-control">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Student Id</label>
+          <input name="student_id" value="{{student_data.student_id}}" required type="text" class="form-control">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Student Name</label>
+          <input name="student_name" value="{{student_data.student_name}}" required type="text" class="form-control">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Email</label>
+          <input type="email" class="form-control" value="{{student_data.student_email}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+        <!-- <div class="mb-3 form-check">
+            <input type="text" class="form-control">abel>
+        </div> -->
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+      
+</div>
+
+
+
+
+{% endblock %}
+</body>
+</html>

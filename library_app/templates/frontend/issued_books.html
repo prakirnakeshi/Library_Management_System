@@ -1,0 +1,54 @@
+<title>Add New Student</title>
+{% extends 'frontend/base.html' %}
+
+<body>
+    
+{% block content %}
+
+<div class="container mt-5">
+  <form class="mb-4">
+      <div class="row">
+      <div class="col-md-6">
+        <input class="form-control" name="search" placeholder="search">
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-success">Search</button>
+      </div>
+    </div>
+  </form>
+  
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">S No.</th>
+            <th scope="col">Book</th>
+            <th scope="col">Student</th>
+            <th scope="col">Issue_Date</th>
+            <th scope="col">Return_Date</th>
+            <th scope="col">Rent_fee</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for data in transaction%}
+          <tr>
+            
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{data.book.title}}</td>
+            <td>{{data.student}}</td>
+            <td>{{data.issue_date}}</td>
+            <td>{{data.return_date}}</td>
+            <td>{{data.rent_fee}}</td>
+            <td>              
+              <a href="/update-issuedbook/{{data.id}}/" class="btn btn-success">Update</button></a>
+          </td>
+            
+          </tr>
+          {% endfor %}
+          <tr>
+    </table>
+</div>
+
+</div>
+
+{% endblock %}
