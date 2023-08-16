@@ -226,28 +226,25 @@ def issue_book(request):
 def update_issued_book(request, id):
     queryset = Transaction.objects.get(id=id)
     if request.method =="POST":
-        issue_date_str = request.POST.get('issue_date')
-        return_date_str = request.POST.get('return_date')
-        rent_fee_str = request.POST.get('rent_fee')
+        issue_date = request.POST.get('issue_date')
+        return_date = request.POST.get('return_date')
+        rent_fee= request.POST.get('rent_fee')
 
-        # Convert date strings to datetime objects
-        issue_date = datetime.datetime.strptime(issue_date, '%Y-%m-%d')
-        return_date = datetime.datetime.strptime(return_date, '%Y-%m-%d')
-        
-        # Update the return date
-        queryset.return_date = return_date
-        date_difference = (return_date - issue_date).days
+         # Calculate date difference and additional rent fee
+        date_difference = 0  # Initialize with a default value
+        if issue_date and return_date:  # Make sure both issue_date and return_date are not None
+            issue_date_obj = datetime.strptime(issue_date, '%Y-%m-%d')
+            return_date_obj = datetime.strptime(return_date, '%Y-%m-%d')
+            date_difference = (return_date_obj - issue_date_obj).days
+            
+            rent_fee = faker.pydecimal(left_digits=3, right_digits=2, positive=True)
 
-        date_difference = (return_date - issue_date).days
-        if rent_fee_str and rent_fee_str != '':
-            rent_fee = float(rent_fee_str)
             if date_difference > 7:
                 additional_days = date_difference - 7
                 additional_rent_fee = additional_days * 10
                 rent_fee += additional_rent_fee
         else:
-            rent_fee = 0.0  # Default value if rent_fee is not provided
-
+            rent_fee = 0
         queryset.return_date = return_date
         queryset.rent_fee = rent_fee
         queryset.save()
