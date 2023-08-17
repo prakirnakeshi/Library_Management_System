@@ -1,0 +1,51 @@
+<title>Books</title>
+{% extends 'frontend/base.html' %}
+
+<body>
+{% block content %}
+<div class="container mt-6">
+    <!-- <h2>Import Books</h2> -->
+    <!-- <form class="mb-4" method="post">
+        {% csrf_token %}
+        <label for="exampleInputEmail1">Number of Books to Import:</label>
+        <input name="num_books" required type="text" class="form-control">
+        <button type="submit">Import</button>
+    </form> -->
+    <form class="mb-4">
+        <div class="row">
+        <div class="col-md-6">
+          <input class="form-control" name="search" placeholder="search">
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-success">Search</button>
+        </div>
+      </div>
+    </form>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">S No.</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">isbn</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for book in book_data %}
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{book.title}}</td>
+            <td>{{book.authors}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.isbn}}</td>
+            <td><a href="/delete-book/{{book.id}}/" class="btn btn-danger m-2">Delete</button></a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+</body>
+</html>
