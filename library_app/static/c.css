@@ -17,7 +17,7 @@ nav{
 }
 body nav .logo{
   color: #fff;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 600;
   
 }
@@ -27,14 +27,14 @@ nav ul{
   list-style: none;
 }
 nav ul li{
-  margin: 20 5px;
+  margin: 0 5px;
 }
 body nav ul li a{
   color: #f2f2f2;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
-  padding: 10px 15px;
+  padding: 5px 15px;
   border-radius: 5px;
   letter-spacing: 1px;
   transition: all 0.3s ease;
@@ -92,6 +92,12 @@ input[type="checkbox"]{
   }
   #click:checked ~ ul li a{
     margin-left: 0px;
+  }
+  body nav .logo{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    
   }
   nav ul li a.active,
   nav ul li a:hover{
