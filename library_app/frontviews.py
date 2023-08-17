@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, date
 from django.shortcuts import render, redirect,HttpResponse
 from faker import Faker
 import faker
@@ -226,25 +226,27 @@ def issue_book(request):
 def update_issued_book(request, id):
     queryset = Transaction.objects.get(id=id)
     if request.method =="POST":
-        issue_date = request.POST.get('issue_date')
+        issue_date = request.POST.get('issued_date')
         return_date = request.POST.get('return_date')
         rent_fee= request.POST.get('rent_fee')
-
+        
+        print("Issue Date:", issue_date)
+        print("Return Date:", return_date)
          # Calculate date difference and additional rent fee
-        date_difference = 0  # Initialize with a default value
+        # date_difference = 0  # Initialize with a default value
         if issue_date and return_date:  # Make sure both issue_date and return_date are not None
             issue_date_obj = datetime.strptime(issue_date, '%Y-%m-%d')
             return_date_obj = datetime.strptime(return_date, '%Y-%m-%d')
             date_difference = (return_date_obj - issue_date_obj).days
-            
-            rent_fee = faker.pydecimal(left_digits=3, right_digits=2, positive=True)
+            print(date_difference)
+            # rent_fee = faker.pydecimal(left_digits=3, right_digits=2, positive=True)
 
             if date_difference > 7:
                 additional_days = date_difference - 7
                 additional_rent_fee = additional_days * 10
-                rent_fee += additional_rent_fee
-        else:
-            rent_fee = 0
+                rent_fee = float(rent_fee) + additional_rent_fee  # Add the additional rent fee
+        # else:
+        #     rent_fee = 0
         queryset.return_date = return_date
         queryset.rent_fee = rent_fee
         queryset.save()

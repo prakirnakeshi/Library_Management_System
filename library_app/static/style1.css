@@ -49,20 +49,7 @@ html, body {
 #heading #secondh1{
     margin-left: 230px;
 }
-/* body{
-  text-decoration: none;
-    font-size: 18px;
-    color:#fff;
-} */
-/* h1{
-  margin-left: 30px;
-    
-  line-break: 1;
-  font-family: "General Sans";
-  font-size: 10vw; 
-  text-transform: uppercase;
-  font-weight: 900;
-} */
+
 .blocktext { 
     width:  fit-content;
     
@@ -221,3 +208,5 @@ tbody tr.hide td img {
     height: 0;
     transition: .2s ease-in-out .5s;
 } 
+
+

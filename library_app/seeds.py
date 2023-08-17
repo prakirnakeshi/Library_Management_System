@@ -1,3 +1,4 @@
+from datetime import timedelta
 from django.shortcuts import render
 from faker import Faker
 fake = Faker()
@@ -62,7 +63,12 @@ def generate_issuedbook_(n=20) -> None:
             student = random.choice(student_objs)  # Select a random student from the list
             
             issue_date = fake.date_this_decade()
-            return_date = fake.date_between(start_date=issue_date)
+            # return_date = fake.date_between(start_date=issue_date)
+            # rent_fee = fake.pydecimal(left_digits=2, right_digits=0, positive=True)
+            # Generate a random return date between issue_date and 15 days later
+            max_return_date = issue_date + timedelta(days=70)
+            return_date = fake.date_between_dates(date_start=issue_date, date_end=max_return_date)
+            
             rent_fee = fake.pydecimal(left_digits=2, right_digits=0, positive=True)
 
             # Calculate the difference between issue_date and return_date

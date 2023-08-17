@@ -22,18 +22,18 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Issued Date</label>
-          <input name="issued_date" value="{{ student_data.issue_date|date:'Y-m-d' }}" required type="text" class="form-control" readonly>
+          <input name="issued_date" value="{{ student_data.issue_date|date:'Y-m-d' }}" required type="text" class="form-control" >
           
           
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Retrun Date</label>
+          <label for="exampleInputPassword1" class="form-label">Return Date</label>
           <input name="return_date" type="date" class="form-control" value="{{student_data.return_date|date:'Y-m-d'}}" id="exampleInputEmail1" aria-describedby="emailHelp">
           
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Rent fee</label>
-          <input name="rent_fee" type="text" class="form-control" value="{{transaction.return_fee}}" id="exampleInputEmail1" aria-describedby="emailHelp" >
+          <input name="rent_fee" type="text" class="form-control" value="{{student_data.rent_fee}}" id="exampleInputEmail1" aria-describedby="emailHelp" >
           
         </div>
         <!-- <div class="mb-3 form-check">
