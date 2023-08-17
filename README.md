@@ -53,12 +53,34 @@ python manage.py runserver
 
 ## Usage
 
-- Use the admin interface to manage books, members, and book issuing.
+- Use the admin interface to manage books, members, and book issues.
 - Perform CRUD operations on books and members.
 - Issue books to members and track borrowed books.
 - Search for books by name and author.
 - Charging rent fees on book returns is automated.
 - The system ensures that a member's debt does not exceed Rs. 500.
+
+## Screenshot
+# Login Page
+![Screenshot (510)](https://github.com/prakirnakeshi/Library_Management_System/assets/84929360/d51cb541-d9bf-4515-bda9-50e7e5d45e97)
+
+# Add Student Details
+![Screenshot (511)](https://github.com/prakirnakeshi/Library_Management_System/assets/84929360/36efab82-ecca-4108-a458-bfe32349d3fa)
+
+# Search Student 
+![Screenshot (512)](https://github.com/prakirnakeshi/Library_Management_System/assets/84929360/810e5f1d-32a6-4281-aa26-e2271186e41b)
+
+# Search Book Name
+![Screenshot (513)](https://github.com/prakirnakeshi/Library_Management_System/assets/84929360/cf74a100-c290-4bc7-9937-73d5880163cf)
+
+# Issue Book to a Student
+![Screenshot (514)](https://github.com/prakirnakeshi/Library_Management_System/assets/84929360/7da365ff-164b-4491-9b77-6b26c75f2efc)
+
+# Transaction Details of Issued Book
+![Screenshot (515)](https://github.com/prakirnakeshi/Library_Management_System/assets/84929360/e414fe89-a4ef-4992-b32d-6789416a42e8)
+
+# Add Return Date
+![Screenshot (516)](https://github.com/prakirnakeshi/Library_Management_System/assets/84929360/39a8524e-922c-4b36-a1ce-d7e6f1cdbe20)
 
 ## Contributing
 
